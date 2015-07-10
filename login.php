@@ -1,8 +1,9 @@
 <?php
 
-header('Content-type: application/json');
+// header('Content-type: application/json');
 // header('Access-Control-Allow-Origin, Access-Control-Allow-Methods and Access-Control-Allow-Headers');
-
+// header('Content-type: application/x-www-form-urlencoded');
+var_dump($_POST);
 if($_POST) {
 	$username   = $_POST['username'];
 	$password   = $_POST['password'];

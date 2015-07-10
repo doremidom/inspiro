@@ -19,12 +19,12 @@
         <div id="main" data-role="page">
             <!-- <h1>inspiro</h1> -->
             <img id="logo" src="logo.png">
-            <form name="login" action="login.php" method="post">
+            <form name="login" action="login.php" method="post" target="_blank">
             <!-- <label for="username">Username/Email</label> -->
-            <input type="text" name="login" id="username" placeholder="Username/Email"  />
+            <input type="text" name="username" id="username" placeholder="Username/Email"  />
             <!-- <label for="password">Password</label> -->
-            <input type="password" name="login" id="password" placeholder="Password"  />
-            <button type="submit" data-role="button">Login</button>
+            <input type="password" name="password" id="password" placeholder="Password"  />
+            <button type="submit" name="submit" value="login" data-ajax="false">Login</button>
             </form>
             <!-- <a href="signup.html" data-role="button">Signup</a> -->
             <br>
