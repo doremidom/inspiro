@@ -2,16 +2,21 @@
 
 header('Content-type: application/json');
 // header('Access-Control-Allow-Origin, Access-Control-Allow-Methods and Access-Control-Allow-Headers');
+
 if($_POST) {
 	$username   = $_POST['username'];
 	$password   = $_POST['password'];
 
 	if($username && $password) {
 
-			$db_name     = 'NAME';
-			$db_user     = 'USER';
-			$db_password = 'PASSWORD';
-			$server_url  = 'URL';
+			// Get database login credentials
+			$db_info = file_get_contents('db_info.json');
+			$db_json = json_decode($db_info);
+
+			$db_name     = $db_json->name;
+			$db_user     = $db_json->user;
+			$db_password = $db_json->password;
+			$server_url  = $db_json->url;
 
 			$mysqli = new mysqli($server_url, $db_user, $db_password, $db_name);
 
