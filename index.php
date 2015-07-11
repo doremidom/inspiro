@@ -20,13 +20,23 @@
             <!-- <h1>inspiro</h1> -->
             <img id="logo" src="logo.png">
             <?php
-                $login_form = '         <form name="login" action="index.php" method="post">
+                $login_html = '         <form name="login" action="index.php" method="post">
                                         <input type="text" name="username" id="username" placeholder="Username/Email"  />
                                         <input type="password" name="password" id="password" placeholder="Password"  />
                                         <button type="submit" name="submit" value="login">Login</button>
                                         </form>
                                         <br>
                                         Need an account? Sign up <a href="signup.html">here</a>
+                              ';
+
+                $profile_html = '       <div>
+                                            Welcome!
+                                        </div>
+
+                                ';
+
+                $error_html = '     Sorry, we couldn\'t find that username/password combination. Please try again.
+                                    <br>
                               ';
                 if($_POST) {
                     $username   = $_POST['username'];
@@ -54,7 +64,7 @@
 
                                     $password = md5($password);
 
-                                    /* bind parameters for markers */
+                                    /* bind paramaters for markers */
                                     $stmt->bind_param("ss", $username, $password);
 
                                     /* execute query */
@@ -75,18 +85,22 @@
 
                                 if ($id) {
                                     error_log("User $username: password match.");
-                                    echo '{"success":1}';
+                                    // echo '{"success":1}';
+                                    var_dump($id);
+                                    echo $profile_html;
                                 } else {
                                     error_log("User $username: password doesn't match.");
-                                    echo '{"success":0,"error_message":"Invalid username/password combination"}';
+                                    // echo '{"success":0,"error_message":"Invalid username/password combination"}';
+                                    echo $error_html.$login_html;
                                 }
                             }
                     } else {
-                        echo '{"success":0,"error_message":"Invalid username/password combination"}';
+                        // echo '{"success":0,"error_message":"Invalid username/password combination"}';
+                        echo $error_html.$login_html;
                     }
                 } else {
                     // echo '{"success":0,"error_message":"Invalid data :("}';
-                    echo $login_form;
+                    echo $login_html;
                 }
             ?>
 
