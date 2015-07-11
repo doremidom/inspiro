@@ -1,5 +1,6 @@
 <?php
-
+echo 'hi';
+var_dump($_POST);
 // header('Content-type: application/json');
 if($_POST) {
 	$username   = $_POST['username'];
@@ -30,12 +31,13 @@ if($_POST) {
 			} else {
 				$stmt = $mysqli->prepare("INSERT INTO users (username, password, email, fullname) VALUES (?, ?, ?, ?)");
 				$password = md5($password);
-				$stmt->bind_param('ss', $username, $password, $email, $fullname);
+				echo $username;
+				$stmt->bind_param('ssss', $username, $password, $email, $fullname);
 
 				/* execute prepared statement */
 				$stmt->execute();
 
-				if ($stmt->error) {error_log("Error: " . $stmt->error); }
+				if ($stmt->error) {echo("Error: " . $stmt->error); }
 
 				$success = $stmt->affected_rows;
 
@@ -51,6 +53,7 @@ if($_POST) {
 					echo '{"success":1}';
 				} else {
 					echo '{"success":0,"error_message":"Username exists."}';
+					echo 'jlkj';
 				}
 			}
 		// } else {
