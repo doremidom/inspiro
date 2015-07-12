@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <meta name="apple-mobile-web-app-capable" content="yes" />
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="style.css" />
@@ -11,6 +12,15 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script>
+            // // scrollTo hack to hide address bar
+            // window.addEventListener("load", function() {
+            //     setTimeout(function() {
+            //         window.scrollTo(0, 1);
+            //     }, 0);
+            // });
+        </script>
+
 
         <title>Inspiro</title>
     </head>
@@ -30,12 +40,14 @@
                               ';
 
                 $profile_html = '       <div>
-                                            Welcome!
+                                            Welcome, %s!
                                         </div>
 
                                 ';
 
-                $error_html = '     Sorry, we couldn\'t find that username/password combination. Please try again.
+                $error_html = '     <div>
+                                        Sorry, we couldn\'t find that username/password combination. Please try again.
+                                    </div>
                                     <br>
                               ';
                 if($_POST) {
@@ -60,7 +72,7 @@
                                 error_log("Connect failed: " . mysqli_connect_error());
                                 echo '{"success":0,"error_message":"' . mysqli_connect_error() . '"}';
                             } else {
-                                if ($stmt = $mysqli->prepare("SELECT username FROM users WHERE username = ? and password = ?")) {
+                                if ($stmt = $mysqli->prepare("SELECT id, email, fullname, portfolio_link FROM users WHERE username = ? and password = ?")) {
 
                                     $password = md5($password);
 
@@ -71,7 +83,7 @@
                                     $stmt->execute();
 
                                     /* bind result variables */
-                                    $stmt->bind_result($id);
+                                    $stmt->bind_result($id, $email, $fullname, $portfolio_link);
 
                                     /* fetch value */
                                     $stmt->fetch();
@@ -86,8 +98,7 @@
                                 if ($id) {
                                     error_log("User $username: password match.");
                                     // echo '{"success":1}';
-                                    var_dump($id);
-                                    echo $profile_html;
+                                    echo sprintf($profile_html, $fullname);
                                 } else {
                                     error_log("User $username: password doesn't match.");
                                     // echo '{"success":0,"error_message":"Invalid username/password combination"}';
