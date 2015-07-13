@@ -49,6 +49,28 @@
                     });
                 }
 
+                // Slideshow with fade
+                // Based on code by Bram Vanroy
+                var imgArray = [
+                    'hcnth1.png',
+                    'hcnth2.png',
+                    'hcnth3.png'],
+                    curIndex = 0;
+                    imgDuration = 4000;
+
+                function slideShow() {
+                    var className = document.getElementById('slider').className;
+                    document.getElementById('slider').className += "fadeOut";
+                    setTimeout(function() {
+                        document.getElementById('slider').src = imgArray[curIndex];
+                        document.getElementById('slider').className = ""; //should be className for proper sizing, but that messes up the transitions
+                    },1000);
+                    curIndex++;
+                    if (curIndex == imgArray.length) { curIndex = 0; }
+                    setTimeout(slideShow, imgDuration);
+                }
+                slideShow();
+
             });
 
         </script>
@@ -103,7 +125,7 @@
                     <div class="borderless ui-btn ui-icon-carat-l ui-btn-icon-notext ui-btn-inline portfolio-button prev-button"></div>
                 </div>
                 <div class="ui-block-b portfolio-block-b">
-                    <img class="portfolio-picture-block" src="hcnth2.png">
+                    <img class="portfolio-picture-block" id="slider" src="hcnth2.png">
                 <br>
                 <b>HAYLEY CYNTHIA</b>
                 </div>

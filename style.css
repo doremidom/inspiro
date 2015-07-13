@@ -67,6 +67,19 @@
     padding-top: 200px !important;
 }
 
+/*
+    Slideshow with fade
+    Based on code by Bram Vanroy
+*/
+#slider {
+    opacity:1;
+    transition: opacity 1s; 
+}
+
+#slider.fadeOut {
+    opacity:0;
+}
+
 /*.ui-block-a, .ui-block-b, .ui-block-c {
     height: 100px !important;
 }*/
