@@ -51,16 +51,20 @@
 }
 
 .portfolio-picture-block {
-    width: 75%;
+    width: 100%;
     max-width: 400px;
 }
 
-.portfolio-block-a {
-    width: 25% !important;
+.portfolio-block-a, .portfolio-block-c {
+    width: 15% !important;
 }
 
 .portfolio-block-b {
-    width: 75% !important;
+    width: 70% !important;
+}
+
+.portfolio-button {
+    padding-top: 200px !important;
 }
 
 /*.ui-block-a, .ui-block-b, .ui-block-c {
