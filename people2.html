@@ -11,6 +11,16 @@
         <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+        <script>
+            // Bind to "mobileinit" before you load jquery.mobile.js
+            // Set the default transition to slide
+            $(document).on( "mobileinit", function() {
+                $.mobile.defaultPageTransition = "slide";
+            }); 
+        </script>
+
+
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script>
             // Swipe, set prev and next
@@ -42,12 +52,12 @@
 
                     // Swipe right
                     $(document).on("swiperight", page, function() {
-                        $.mobile.changePage(prev + ".html");
+                        $.mobile.changePage(prev + ".html", {reverse: true});
                     });
 
                     // "prev" button
                     $(".prev-button", page).on("click", function() {
-                        $.mobile.changePage(prev + ".html");
+                        $.mobile.changePage(prev + ".html", {reverse: true});
                     });
                 }
 
@@ -86,7 +96,7 @@
             <!-- <h1>inspiro</h1> -->
 
             <!-- HEADER -->
-            <div class="headergrid ui-grid-b">
+            <div class="ui-grid-b borderless" data-role="header" data-position="fixed" data-id="headergrid">
                 <div class="ui-block-a">
                     <img class="profilepicture-block" src="david.jpeg">
                     <span class="padder">Welcome, David!</span>
