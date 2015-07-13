@@ -13,12 +13,44 @@
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script>
-            // // scrollTo hack to hide address bar
-            // window.addEventListener("load", function() {
-            //     setTimeout(function() {
-            //         window.scrollTo(0, 1);
-            //     }, 0);
-            // });
+            $(document).on("pageinit", "[data-role='page']", function() {
+                var page = "#" + $(this).attr("id"),
+                    next = $(this).jqmData("next"),
+                    prev = $(this).jqmData("prev");
+                    console.log("next: %s, prev: %s", next, prev);
+
+                if (next) {
+                    // Prefetch
+                    $.mobile.loadPage(next + ".html");
+
+                    // Swipe left
+                    $(document).on("swipeleft", page, function() {
+                        $.mobile.changePage(next);
+                    });
+
+                    // "Next" button
+                    $(".next-button", page).on("click", function() {
+                        $.mobile.changePage(next);
+                    });
+                }
+
+                if (prev) {
+                    // Prefetch
+                    $.mobile.loadPage(prev + ".html");
+
+                    // Swipe left
+                    $(document).on("swipeleft", page, function() {
+                        $.mobile.changePage(prev);
+                    });
+
+                    // "prev" button
+                    $(".prev-button", page).on("click", function() {
+                        $.mobile.changePage(prev);
+                    });
+                }
+
+            });
+
         </script>
 
 
@@ -26,7 +58,7 @@
     </head>
     <body>
         <!-- <div id="wrapper"> -->
-        <div id="main" data-role="page">
+        <div id="main" data-role="page" data-next="people2">
             <!-- <h1>inspiro</h1> -->
 
             <!-- HEADER -->
@@ -68,15 +100,15 @@
             </div> -->
             <div class="navbar ui-grid-b">
                 <div class="ui-block-a portfolio-block-a">
-                    <a href="index.php" class="borderless ui-btn ui-icon-carat-l ui-btn-icon-notext ui-btn-inline portfolio-button"></a>
+                    <div class="borderless ui-btn ui-icon-carat-l ui-btn-icon-notext ui-btn-inline portfolio-button prev-button"></div>
                 </div>
                 <div class="ui-block-b portfolio-block-b">
-                    <img class="portfolio-picture-block" src="hcnth1.png">
+                    <img class="portfolio-picture-block" src="hcnth2.png">
                 <br>
                 <b>HAYLEY CYNTHIA</b>
                 </div>
                 <div class="ui-block-c portfolio-block-c">
-                    <a href="index.php" class="borderless ui-btn ui-icon-carat-r ui-btn-icon-notext ui-btn-inline portfolio-button"></a>
+                    <div class="borderless ui-btn ui-icon-carat-r ui-btn-icon-notext ui-btn-inline portfolio-button next-button"></div>
                 </div>
             </div>
             <br>
