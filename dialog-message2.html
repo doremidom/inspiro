@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Message</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ 
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css" />
+
+        <link rel="stylesheet" href="themes/inspiro.min.css" />
+        <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+    html, body { padding: 0; margin: 0; }
+    html, .ui-mobile, .ui-mobile body {
+        height: 415px;
+    }
+    .ui-mobile, .ui-mobile .ui-page {
+        min-height: 415px;
+    }
+    .ui-content{
+        padding:10px 15px 0px 15px;
+    }
+    </style>
+</head>
+
+<body>
+<div data-role="dialog">
+
+        <div data-role="header" data-theme="a">
+            <h1>New Message to Dances</h1>
+
+        </div>
+
+        <div role="main" class="ui-content">
+            <!-- <h1>Delete page?</h1> -->
+            <!-- <p>Send a message </p> -->
+            <textarea placeholder="Type your message here..."></textarea>
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <a href="people2.html" data-role="button" data-rel="back" data-theme="b">Cancel</a>
+                </div>
+                <div class="ui-block-b">
+                    <a href="people2.html" data-role="button" data-rel="back" data-theme="a">Send</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
