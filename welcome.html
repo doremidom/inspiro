@@ -32,7 +32,7 @@
             <!-- HEADER -->
             <div class="headergrid ui-grid-b">
                 <div class="ui-block-a">
-                    <img class="profilepicture-block" src="david.jpeg">
+                    <img class="profilepicture-block" src="user.png">
                     <span class="padder">Welcome, David!</span>
                     <!-- <a href="index.php" class="borderless rightmost ui-btn ui-icon-home ui-btn-icon-notext"></a> -->
                 </div>
@@ -40,22 +40,27 @@
                     <img class="logo-block" src="logo.png">
                 </div>
                 <div class="ui-block-c">
-                    <a href="index.php" class="borderless rightmost ui-btn ui-icon-bars ui-btn-icon-notext"></a>
+                    <a href="#" class="borderless rightmost ui-btn ui-icon-bars ui-btn-icon-notext"></a>
                     <!-- <a href="index.php" class="borderless rightmost ui-btn ui-icon-mail ui-btn-icon-notext"></a> -->
                 </div>
             </div>
             <!-- WELCOME -->
-            Welcome, David!
+            Welcome to Inspiro!
             <br><br><br>
 
             <!-- CONTENT -->
             <div class="ui-grid-a">
                 <div class="ui-block-a">
-                    <a href="people.html" data-role="button">Find People</a>
+                    <a href="people.html" data-ajax="false" data-role="button">Find People</a>
                 </div>
                 <div class="ui-block-b">
-                    <a href="" data-role="button">Find Projects</a>
+                    <a href="#comingSoon" class="soonbutton" data-role="button" data-rel="popup" data-position-to="window" data-transition="pop">Find Projects</a>
                 </div>
+            </div>
+
+            <!-- POPUPS -->
+            <div data-role="popup" id="comingSoon" data-theme="a">
+                    <p>Coming soon!</p>
             </div>
 
 

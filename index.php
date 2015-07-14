@@ -61,7 +61,7 @@
                                                 <img class="logo-block" src="logo.png">
                                             </div>
                                             <div class="ui-block-c">
-                                                <a href="index.php" class="borderless rightmost ui-btn ui-icon-bars ui-btn-icon-notext"></a>
+                                                <a href="#" class="borderless rightmost ui-btn ui-icon-bars ui-btn-icon-notext"></a>
                                                 <!-- <a href="index.php" class="borderless rightmost ui-btn ui-icon-mail ui-btn-icon-notext"></a> -->
                                             </div>
                                         </div>
@@ -83,6 +83,7 @@
                                             </div>
                                         </div>
                                         
+                                        <!-- POPUPS -->
                                         <div data-role="popup" id="comingSoon" data-theme="a">
                                             <p>Coming soon!</p>
                                         </div>
