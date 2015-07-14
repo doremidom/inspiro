@@ -98,7 +98,7 @@
             <!-- HEADER -->
             <div class="ui-grid-b borderless" data-role="header" data-position="fixed" data-id="headergrid">
                 <div class="ui-block-a">
-                    <img class="profilepicture-block" src="david.jpeg">
+                    <img class="profilepicture-block" src="user.png">
                     <span class="padder">Welcome, David!</span>
                     <!-- <a href="index.php" class="borderless rightmost ui-btn ui-icon-home ui-btn-icon-notext"></a> -->
                 </div>
@@ -106,7 +106,7 @@
                     <img class="logo-block" src="logo.png">
                 </div>
                 <div class="ui-block-c">
-                    <a href="index.php" class="borderless rightmost ui-btn ui-icon-bars ui-btn-icon-notext"></a>
+                    <a href="welcome.html" class="borderless rightmost ui-btn ui-icon-bars ui-btn-icon-notext"></a>
                     <!-- <a href="index.php" class="borderless rightmost ui-btn ui-icon-mail ui-btn-icon-notext"></a> -->
                 </div>
             </div>
@@ -152,16 +152,32 @@
             <!-- NAV -->
             <div class="navbar ui-grid-b">
                 <div class="ui-block-a">
-                    <a href="index.php" class="borderless ui-btn ui-icon-info ui-btn-icon-notext ui-btn-inline"></a>
+                    <a href="#popup_info" class="borderless ui-btn ui-icon-info ui-btn-icon-notext ui-btn-inline" data-rel="popup" data-position-to="window" data-transition="pop"></a>
                 </div>
                 <div class="ui-block-b">
-                    <a href="index.php" class="borderless ui-btn ui-icon-heart ui-btn-icon-notext ui-btn-inline"></a>
+                    <a href="#popup_favorite" class="borderless ui-btn ui-icon-heart ui-btn-icon-notext ui-btn-inline" data-rel="popup" data-position-to="window" data-transition="pop"></a>
                 </div>
                 <div class="ui-block-c">
-                    <a href="index.php" class="borderless ui-btn ui-icon-mail ui-btn-icon-notext ui-btn-inline"></a>
+                    <a href="dialog-message.html" class="borderless ui-btn ui-icon-mail ui-btn-icon-notext ui-btn-inline" data-rel="dialog" data-position-to="window" data-transition="pop"></a>
                 </div>
             </div>
 
+            <!-- POPUPS -->
+            <div data-role="popup" id="comingSoon" data-theme="a">
+                <p>Coming soon!</p>
+            </div>
+
+            <div data-role="popup" id="popup_info" class="inspiro-popup" data-theme="a">
+                <p>Detailed profile coming soon!</p>
+            </div>
+
+            <div data-role="popup" id="popup_favorite" class="inspiro-popup" data-theme="a">
+                <p>Hayley has been added to your favorites.</p>
+            </div>
+
+            <div data-role="popup" id="popup_message" class="inspiro-popup" data-theme="a">
+                <p>Message</p>
+            </div>
 
             <!-- <form name="login" action="index.php" method="post" target="_blank">
             <input type="text" name="username" id="username" placeholder="Username/Email"  />

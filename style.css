@@ -82,7 +82,7 @@
     opacity:0;
 }
 
-#comingSoon {
+#comingSoon, .inspiro-popup {
     /*background-color: rgba(90, 206, 229, 0.5) !important;*/
     background-color: rgba(0, 0, 0, 0.5) !important;
     border: none !important;
