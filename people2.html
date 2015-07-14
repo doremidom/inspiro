@@ -24,7 +24,7 @@
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script>
             // Swipe, set prev and next
-            $(document).on("pageinit", "[data-role='page']", function() {
+            $(document).on("pageinit", "[data-role='page']", function(event) {
                 // Get data
                 var page = "#" + $(this).attr("id"),
                     next = $(this).jqmData("next"),
@@ -38,11 +38,17 @@
                     // Swipe left
                     $(document).on("swipeleft", page, function() {
                         $.mobile.changePage(next + ".html");
+                        event.stopPropagation();
+                        event.stopImmediatePropagation();
+                        event.preventDefault();
                     });
 
                     // "Next" button
                     $(".next-button", page).on("click", function() {
                         $.mobile.changePage(next + ".html");
+                        event.stopPropagation();
+                        event.stopImmediatePropagation();
+                        event.preventDefault();
                     });
                 }
 
@@ -53,13 +59,20 @@
                     // Swipe right
                     $(document).on("swiperight", page, function() {
                         $.mobile.changePage(prev + ".html", {reverse: true});
+                        event.stopPropagation();
+                        event.stopImmediatePropagation();
+                        event.preventDefault();
                     });
 
                     // "prev" button
                     $(".prev-button", page).on("click", function() {
                         $.mobile.changePage(prev + ".html", {reverse: true});
+                        event.stopPropagation();
+                        event.stopImmediatePropagation();
+                        event.preventDefault();
                     });
                 }
+
 
                 // // Slideshow with fade
                 // // Based on code by Bram Vanroy
@@ -92,7 +105,7 @@
     </head>
     <body>
         <!-- <div id="wrapper"> -->
-        <div id="main" data-role="page" data-dom-cache="true" data-next="people3" data-prev="people">
+        <div id="main" data-role="page" data-next="people3" data-prev="people">
             <!-- <h1>inspiro</h1> -->
 
             <!-- HEADER -->
