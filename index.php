@@ -19,6 +19,9 @@
             //         window.scrollTo(0, 1);
             //     }, 0);
             // });
+            $(".soonbutton").on("click", function() {
+                alert("Coming soon!");
+            });
         </script>
 
 
@@ -28,21 +31,52 @@
         <!-- <div id="wrapper"> -->
         <div id="main" data-role="page">
             <!-- <h1>inspiro</h1> -->
-            <img id="logo" src="logo.png">
+            <!-- <img id="logo" src="logo.png"> -->
             <?php
-                $login_html = '         <form name="login" action="index.php" method="post">
+                $header_html = '<img id="logo" src="logo.png">';
+                $login_html = '
+                                        <form name="login" action="index.php" method="post">
                                         <input type="text" name="username" id="username" placeholder="Username/Email"  />
                                         <input type="password" name="password" id="password" placeholder="Password"  />
                                         <button type="submit" name="submit" value="login">Login</button>
                                         </form>
                                         <br>
-                                        Need an account? Sign up <a href="signup.html">here</a>
+                                        Need an account? Sign up <a href="signup.php">here</a>
                               ';
 
-                $profile_html = '       <div>
+                $profile_html = '
+                                        <!-- HEADER -->
+                                        <div class="headergrid ui-grid-b">
+                                            <div class="ui-block-a">
+                                                <img class="profilepicture-block" src="user.png">
+                                                <span class="padder">Welcome, David!</span>
+                                                <!-- <a href="index.php" class="borderless rightmost ui-btn ui-icon-home ui-btn-icon-notext"></a> -->
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <img class="logo-block" src="logo.png">
+                                            </div>
+                                            <div class="ui-block-c">
+                                                <a href="index.php" class="borderless rightmost ui-btn ui-icon-bars ui-btn-icon-notext"></a>
+                                                <!-- <a href="index.php" class="borderless rightmost ui-btn ui-icon-mail ui-btn-icon-notext"></a> -->
+                                            </div>
+                                        </div>
+
+                                        <!--WELCOME-->
+                                        <div>
                                             Welcome, %s!
                                         </div>
 
+                                        <br><br><br>
+
+                                        <!-- CONTENT -->
+                                        <div class="ui-grid-a">
+                                            <div class="ui-block-a">
+                                                <a href="people.html" data-ajax="false" data-role="button">Find People</a>
+                                            </div>
+                                            <div class="ui-block-b">
+                                                <a href="#" class="soonbutton" data-ajax="false" data-role="button">Find Projects</a>
+                                            </div>
+                                        </div>
                                 ';
 
                 $error_html = '     <div>
@@ -102,16 +136,16 @@
                                 } else {
                                     error_log("User $username: password doesn't match.");
                                     // echo '{"success":0,"error_message":"Invalid username/password combination"}';
-                                    echo $error_html.$login_html;
+                                    echo $header_html.$error_html.$login_html;
                                 }
                             }
                     } else {
                         // echo '{"success":0,"error_message":"Invalid username/password combination"}';
-                        echo $error_html.$login_html;
+                        echo $header_html.$error_html.$login_html;
                     }
                 } else {
                     // echo '{"success":0,"error_message":"Invalid data :("}';
-                    echo $login_html;
+                    echo $header_html.$login_html;
                 }
             ?>
 
