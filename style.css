@@ -15,7 +15,9 @@
 }
 
 /*.ui-page {
-    margin: 20px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 75%;
 }*/
 
 .profilepicture-block {
@@ -41,7 +43,7 @@
     /*text-align: center;*/
 }
 
-/*.headergrid {
+/*#headergrid {
     height: 1000px !important;
 }*/
 
@@ -78,6 +80,12 @@
 
 #slider.fadeOut {
     opacity:0;
+}
+
+#comingSoon {
+    /*background-color: rgba(90, 206, 229, 0.5) !important;*/
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    border: none !important;
 }
 
 /*.ui-block-a, .ui-block-b, .ui-block-c {

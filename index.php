@@ -19,9 +19,14 @@
             //         window.scrollTo(0, 1);
             //     }, 0);
             // });
-            $(".soonbutton").on("click", function() {
-                alert("Coming soon!");
-            });
+    
+            // // Alert coming soon!
+            // $(document).on("pageinit", function() {
+            //     $(".soonbutton").on("click", function() {
+            //         alert("Coming soon!");
+            //     });
+            // });
+
         </script>
 
 
@@ -74,8 +79,12 @@
                                                 <a href="people.html" data-ajax="false" data-role="button">Find People</a>
                                             </div>
                                             <div class="ui-block-b">
-                                                <a href="#" class="soonbutton" data-ajax="false" data-role="button">Find Projects</a>
+                                                <a href="#comingSoon" class="soonbutton" data-role="button" data-rel="popup" data-position-to="window" data-transition="pop">Find Projects</a>
                                             </div>
+                                        </div>
+                                        
+                                        <div data-role="popup" id="comingSoon" data-theme="a">
+                                            <p>Coming soon!</p>
                                         </div>
                                 ';
 
